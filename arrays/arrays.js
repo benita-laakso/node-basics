@@ -111,7 +111,7 @@ function sortNumericVector(arr) {
     return a - b
   });
 }
-console.log(sortNumericVector([24, 11, 5]));
+console.log(sortNumericVector([25, 11, 5]));
 
 let sample = [{
     author: 'Bill Gates',
