@@ -2,18 +2,17 @@ const express = require('express');
 const app = express();
 
 app.use(express.static('public'));
-app.use(express.json())
-app.use(express.urlencoded({
+app.use(express.json())//bodypasser
+app.use(express.urlencoded({//bodypasser
   extended: true
 }))
 
 // Pretend internet addres run localy (localhost)
 // get request , the browser requesting a webpage
 
-app.get('/api/exercise', (req, res) => { // Creating the adress
+app.get('/api/exercise', (req, res) => { // acsessing the path
   res.send(req.query); // Sending the reponce
-  console.log(req.method);
-  console.log(req.path);
+  console.log(req.method, req.path);
   console.log(req.query);
 });
 //guery is everything after question mark with a key value pair in the URL
@@ -45,8 +44,6 @@ app.post('/api/login', (req, res) => {
       }
     }
 )
-
-
 
     //Extra practise
     app.get('/Paul', (req, res) => {

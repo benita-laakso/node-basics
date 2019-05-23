@@ -1,11 +1,18 @@
 Node Express Answers
 1.
 Post request method requests that the web server accepts the data enclosed in the body of the request message, most likely storing it.
+Post=Sending info to Serverr,that stores it.
+
 Get request method retrieves information from the server. As part of a GET request, some data can be passed within the URL's query string, specifying (for example) search terms, date ranges, or other information that defines the query.
+
 Put
-The PUT method requests that the enclosed entity be stored under the supplied URI. If the URI refers to an already existing resource, it is modified; if the URI does not point to an existing resource, then the server can create the resource with that URI
+The PUT method requests that the enclosed entity be stored under the supplied URI.
+If the URI refers to an already existing resource, it is modified; if the URI does not point to an existing resource, then the server can create the resource with that URI
+PUT is for uppdating.
+
 Delete
 The DELETE method deletes the specified resource.
+
 2.
 200 = Ok
 400 =  Bad request
@@ -16,5 +23,8 @@ The DELETE method deletes the specified resource.
 ex. http://www.example.com?name=Sofie&age=25
 
 4.
+
 In a form with method = post.
 The form data is sent as the request body.
+or
+Query preramiers i url

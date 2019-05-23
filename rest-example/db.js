@@ -22,7 +22,7 @@ function getPoi(id) {
 }
 
 function setPoi(id, poi) {
-    storage[id] = { id, ...poi };
+    storage[id] = {...poi, id };
     return storage[id];
 }
 
