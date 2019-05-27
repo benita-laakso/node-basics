@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express();
+const app = express(); //app serveri joka rakennetaan tässä
 
 const db = require('./db');
 const port = 3000;
@@ -36,19 +36,32 @@ app.post('/api/v1/pois', (request, response) => {
   }
 });
 
-// Update POI
-
-//Delete POI   
-app.delete('/api/v1/pois/:id', (request, response) =>{
+// Update POI 
+app.put('/api/v1/pois/:id', (request, response) => {
   const id = request.params.id;
-  if(id && db.getPoi(id) ){
+  let data = request.body;
+
+  if (data && data.description && data.name && data.coordinates && data.coordinates.lat && data.coordinates.lng) {
+    const status = db.getPoi(id) ? 200 : 201; // 200, jos id on olemassa
+    data = db.setPoi(id, data);
+    response.status(status).send(data);
+  } else {
+    response.status(400).send();
+  }
+
+});
+
+//Delete POI
+app.delete('/api/v1/pois/:id', (request, response) => {
+  const id = request.params.id;
+  if (id && db.getPoi(id)) {
     db.deletePoi(id);
     response.status(204).send();
-  }else{
+  } else {
     response.status(404).send();
   }
-}
+});
 
 app.listen(port, () => {
-  console.log('Server listening on ${port}');
+  console.log(`Server listening on ${port}`);
 })

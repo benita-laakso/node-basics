@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 
 app.use(express.static('public'));
-app.use(express.json())//bodypasser
-app.use(express.urlencoded({//bodypasser
+app.use(express.json()) //bodypasser
+app.use(express.urlencoded({ //bodypasser
   extended: true
 }))
 
@@ -33,26 +33,25 @@ app.post('/api/exercise', (req, res) => {
 
 
 app.post('/api/login', (req, res) => {
-      if (!req.body.user || !req.body.pwd) {
-        res.status(400).end();
-      } else if (req.body.user === 'mark' && req.body.pwd === 'giraffe') {
-        res.send(JSON.stringify({
-          user: req.body.user
-        }));
-      } else {
-        res.status(403).end()
-      }
-    }
-)
+  if (!req.body.user || !req.body.pwd) {
+    res.status(400).end();
+  } else if (req.body.user === 'mark' && req.body.pwd === 'giraffe') {
+    res.send(JSON.stringify({
+      user: req.body.user
+    }));
+  } else {
+    res.status(403).end()
+  }
+})
 
-    //Extra practise
-    app.get('/Paul', (req, res) => {
-      res.send('Paul is super');
-    });
+//Extra practise
+app.get('/Paul', (req, res) => {
+  res.send('Paul is super');
+});
 
-    // localhost:5000
-    app.listen(5000, () => console.log('server running on port 5000'));
+// localhost:5000
+app.listen(5000, () => console.log('server running on port 5000'));
 
-    //Forms
-    // Get pases the information in the URL
-    // Post Sends data in Http header (like an envelop)
+//Forms
+// Get pases the information in the URL
+// Post Sends data in Http header (like an envelop)
